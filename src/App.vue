@@ -1,12 +1,17 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <h1 class="logo" @click="$router.push('/')">CRUD статьи</h1>
+    <div class="container">
+      <router-view></router-view>
     </div>
-    <router-view/>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'App'
+}
+</script>
 
 <style lang="scss">
 #app {
@@ -17,16 +22,47 @@
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
+.container{
+  width: 70%;
+  margin: 0 auto;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+input, textarea, button, a{
+  &:focus{
+    outline: none;
   }
+}
+
+button{
+  border: none;
+  border-bottom: 2px solid lightsalmon;
+  border-radius: 8px;
+  padding: 10px 15px;
+  cursor: pointer;
+  &.delete{
+    background-color: crimson;
+    color: white;
+  }
+  &.change{
+    background-color: khaki;
+  }
+}
+
+form{
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    input, textarea, button{
+        margin: 10px 0;
+        padding: 10px 15px;
+        border: none;
+        border-bottom: 2px solid lightsalmon;
+        border-radius: 8px;
+    }
+}
+
+.logo{
+  cursor: pointer;
 }
 </style>
